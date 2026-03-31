@@ -107,10 +107,11 @@ export default async function DirectoryPage({
     if (categorySlug) base.category = categorySlug;
     if (acceptingNew) base.accepting = 'true';
 
-    const merged = { ...base, ...overrides };
-    Object.keys(merged).forEach((k) => {
-      if (!merged[k]) delete merged[k];
-    });
+    const merged: Record<string, string> = { ...base };
+    for (const [k, v] of Object.entries(overrides)) {
+      if (v) merged[k] = v;
+      else delete merged[k];
+    }
 
     const params = new URLSearchParams(merged);
     return `/directory?${params.toString()}`;
