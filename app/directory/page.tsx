@@ -207,7 +207,8 @@ export default async function DirectoryPage({
         <section className="lg:col-span-3" aria-label="Directory results">
           {error && (
             <div className="p-4 mb-4 text-sm text-red-700 border border-red-200 rounded-lg bg-red-50">
-              We couldn&apos;t load forwarders. Please try again.
+              <p className="font-medium">We couldn&apos;t load forwarders. Please try again.</p>
+              <pre className="mt-2 text-xs text-red-500 whitespace-pre-wrap">{error.message} ({error.code})</pre>
             </div>
           )}
 
