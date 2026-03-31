@@ -1,5 +1,16 @@
 -- Quote request submissions from the multi-step freight wizard
 
+-- Clean up any partial previous run
+drop trigger if exists set_quote_requests_updated_at on public.quote_requests;
+drop policy if exists "Anyone can submit a quote request" on public.quote_requests;
+drop policy if exists "Admins can view all quote requests" on public.quote_requests;
+drop policy if exists "Admins can update quote requests" on public.quote_requests;
+drop index if exists idx_quote_requests_status;
+drop index if exists idx_quote_requests_created;
+drop index if exists idx_quote_requests_email;
+drop table if exists public.quote_requests;
+drop type if exists public.quote_status;
+
 -- Ensure helper functions exist (may already exist from earlier migrations)
 create or replace function public.set_updated_at()
 returns trigger
