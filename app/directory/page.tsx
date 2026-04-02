@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Browse China Freight Forwarders — ChinaFreight Directory',
+  title: 'Browse China Freight Forwarders — China Forwarders Directory',
   description:
     'Search and compare vetted freight forwarders across China by service and availability.'
 };

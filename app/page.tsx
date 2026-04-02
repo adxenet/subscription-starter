@@ -1,9 +1,10 @@
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import RouteTicker from '@/components/ui/RouteTicker';
 
 export const metadata: Metadata = {
-  title: 'ChinaFreight — Trusted China Freight Forwarder Directory',
+  title: 'China Forwarders — Trusted China Freight Forwarder Directory',
   description:
     'Find, compare, and connect with vetted China freight forwarders. Search by service, read reviews, and get freight quotes.'
 };
@@ -38,14 +39,14 @@ export default async function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(37,99,235,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(180,9,11,0.10),transparent)]" />
 
         <div className="relative max-w-4xl px-6 pt-20 pb-16 mx-auto text-center md:pt-28 md:pb-20">
           <Link
             href="/quote"
-            className="inline-flex items-center gap-2 px-6 py-3 mb-8 text-sm font-semibold text-white rounded-full bg-brand-600 hover:bg-brand-700 transition shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40"
+            className="inline-flex items-center gap-3 px-10 py-4 mb-8 text-lg font-bold text-white rounded-full bg-brand-600 hover:bg-brand-700 transition shadow-xl shadow-brand-600/30 hover:shadow-brand-600/50 hover:scale-105 transform"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             Find a Forwarder
@@ -122,6 +123,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Route ticker */}
+      <RouteTicker />
 
       {/* Trust bar */}
       <section className="border-y border-surface-100 bg-surface-50">

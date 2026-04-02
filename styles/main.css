@@ -11,7 +11,7 @@
 }
 
 *:focus:not(ol) {
-  @apply outline-none ring-2 ring-brand-400/40;
+  @apply outline-none ring-2 ring-brand-300/40;
 }
 
 html {
@@ -53,4 +53,21 @@ p a {
 
 .height-screen-helper {
   min-height: calc(100vh - 80px);
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 60s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
 }

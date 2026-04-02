@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import QuoteWizard from '@/components/quote/QuoteWizard';
 
 export const metadata: Metadata = {
-  title: 'Get a Freight Quote — ChinaFreight',
+  title: 'Get a Freight Quote — China Forwarders',
   description:
     'Tell us about your shipment and receive competitive quotes from vetted China freight forwarders within 24–48 hours.'
 };

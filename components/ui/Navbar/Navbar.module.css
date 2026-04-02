@@ -7,7 +7,7 @@
 }
 
 .link:focus {
-  @apply outline-none text-brand-600 ring-2 ring-brand-400/40;
+  @apply outline-none text-brand-600 ring-2 ring-brand-300/40;
 }
 
 .logo {

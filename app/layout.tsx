@@ -6,9 +6,9 @@ import { PropsWithChildren, Suspense } from 'react';
 import { getURL } from '@/utils/helpers';
 import 'styles/main.css';
 
-const title = 'ChinaFreight — Trusted China Freight Forwarder Directory';
+const title = 'China Forwarders — Trusted China Freight Forwarder Directory';
 const description =
-  'Find, compare, and connect with vetted China freight forwarders. Search by service type, price, and availability.';
+  'Find, compare, and connect with vetted China freight forwarders. Search by service, read reviews, and get freight quotes.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getURL()),

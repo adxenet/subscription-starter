@@ -22,14 +22,20 @@ export default function Navlinks({ user }: NavlinksProps) {
           <Logo />
         </Link>
         <span className="ml-2 mr-6 text-lg font-bold tracking-tight text-surface-900">
-          ChinaFreight
+          China Forwarders
         </span>
-        <nav className="hidden sm:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1">
           <Link href="/directory" className={s.link}>
             Directory
           </Link>
-          <Link href="/" className={s.link}>
-            Pricing
+          <Link href="/quote" className={s.link}>
+            Get Quotes
+          </Link>
+          <Link href="/blog" className={s.link}>
+            Blog
+          </Link>
+          <Link href="/contact" className={s.link}>
+            Contact
           </Link>
           {user && (
             <Link href="/account" className={s.link}>
@@ -39,6 +45,15 @@ export default function Navlinks({ user }: NavlinksProps) {
         </nav>
       </div>
       <div className="flex items-center gap-2">
+        <Link
+          href="/add-listing"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white transition rounded-lg bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-400/40 focus:outline-none shadow-sm"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+          Add Listing
+        </Link>
         {user ? (
           <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
             <input type="hidden" name="pathName" value={usePathname()} />
@@ -47,17 +62,9 @@ export default function Navlinks({ user }: NavlinksProps) {
             </button>
           </form>
         ) : (
-          <>
-            <Link href="/signin" className={s.link}>
-              Sign In
-            </Link>
-            <Link
-              href="/signin/signup"
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white transition rounded-lg bg-brand-600 hover:bg-brand-700 focus:ring-2 focus:ring-brand-400/40 focus:outline-none"
-            >
-              Register
-            </Link>
-          </>
+          <Link href="/signin" className={s.link}>
+            Sign In
+          </Link>
         )}
       </div>
     </div>
