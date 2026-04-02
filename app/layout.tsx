@@ -4,6 +4,7 @@ import Navbar from '@/components/ui/Navbar';
 import { Toaster } from '@/components/ui/Toasts/toaster';
 import { PropsWithChildren, Suspense } from 'react';
 import { getURL } from '@/utils/helpers';
+import { headers } from 'next/headers';
 import 'styles/main.css';
 
 const title = 'China Forwarders — Trusted China Freight Forwarder Directory';
@@ -21,17 +22,25 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
+  const headersList = headers();
+  const pathname = headersList.get('x-pathname') ?? '';
+  const isAdmin = pathname.startsWith('/admin');
+
   return (
     <html lang="en">
-      <body className="bg-white text-surface-900">
-        <Navbar />
-        <main
-          id="skip"
-          className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
-        >
-          {children}
-        </main>
-        <Footer />
+      <body className={isAdmin ? 'bg-surface-50 text-surface-900' : 'bg-white text-surface-900'}>
+        {!isAdmin && <Navbar />}
+        {isAdmin ? (
+          children
+        ) : (
+          <main
+            id="skip"
+            className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
+          >
+            {children}
+          </main>
+        )}
+        {!isAdmin && <Footer />}
         <Suspense>
           <Toaster />
         </Suspense>
