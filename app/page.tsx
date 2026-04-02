@@ -159,6 +159,87 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="bg-white border-t border-surface-100 overflow-hidden">
+        <div className="max-w-6xl px-6 pt-8 pb-2 mx-auto md:pt-10">
+          <h2 className="text-base font-bold tracking-tight text-center text-surface-900 sm:text-lg">
+            Trusted by importers worldwide
+          </h2>
+        </div>
+        <div className="relative mt-5 pb-8">
+          <div className="flex animate-testimonials whitespace-nowrap">
+            {[...Array(2)].flatMap((_, dup) =>
+              [
+                {
+                  quote:
+                    'We were getting burned by unreliable agents until we found our current forwarder through China Forwarders. They handle our ocean FCL shipments flawlessly every month.',
+                  name: 'Sarah K.',
+                  role: 'eCommerce Brand Owner',
+                  location: 'Austin, TX'
+                },
+                {
+                  quote:
+                    'I needed an FBA prep service in Shenzhen that could handle fragile goods. Found three great options here, got quotes the same day, and shipped within a week.',
+                  name: 'James L.',
+                  role: 'Amazon FBA Seller',
+                  location: 'Manchester, UK'
+                },
+                {
+                  quote:
+                    'As a first-time importer I had no idea where to start. The directory filters made it easy to find forwarders who specialise in small LCL shipments to Australia.',
+                  name: 'Priya M.',
+                  role: 'Small Business Owner',
+                  location: 'Melbourne, AU'
+                },
+                {
+                  quote:
+                    'We switched from a forwarder we found on Alibaba to one listed here with verified reviews. Our transit times dropped by 8 days and costs went down 15%.',
+                  name: 'Daniel R.',
+                  role: 'Procurement Manager',
+                  location: 'Toronto, CA'
+                },
+                {
+                  quote:
+                    'The quote comparison tool saved us hours. We compared air freight rates from five forwarders and locked in a great price for our time-sensitive electronics.',
+                  name: 'Lisa T.',
+                  role: 'Supply Chain Lead',
+                  location: 'Berlin, DE'
+                },
+                {
+                  quote:
+                    'I was skeptical at first, but every forwarder I contacted through China Forwarders replied within 24 hours. Ended up with a partner we\'ve used for two years now.',
+                  name: 'Michael O.',
+                  role: 'DTC Brand Founder',
+                  location: 'Los Angeles, CA'
+                }
+              ].map((t, i) => (
+                <div
+                  key={`${dup}-${i}`}
+                  className="inline-flex flex-col justify-between w-80 p-5 mx-3 bg-surface-50 border border-surface-100 rounded-xl whitespace-normal shrink-0"
+                >
+                  <div className="flex gap-1 mb-3 text-amber-400">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <svg key={j} className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="flex-1 text-sm leading-relaxed text-surface-600">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="mt-2 pt-2 border-t border-surface-200">
+                    <p className="text-sm font-semibold text-surface-900">{t.name}</p>
+                    <p className="text-xs text-surface-400">
+                      {t.role} &middot; {t.location}
+                    </p>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Trust bar */}
       <section className="border-y border-surface-100 bg-surface-50">
         <div className="max-w-5xl px-6 py-4 mx-auto">
@@ -221,13 +302,18 @@ export default async function HomePage() {
                   href={`/directory/${biz.slug}`}
                   className="group flex flex-col h-full p-5 bg-white border border-surface-200 rounded-xl transition hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50"
                 >
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="flex-1">
+                  <div className="flex items-start gap-3 mb-3">
+                    <img
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(biz.name)}&background=b4090b&color=fff&size=128&bold=true&font-size=0.35`}
+                      alt={`${biz.name} logo`}
+                      className="w-10 h-10 rounded-lg object-cover shrink-0 border border-surface-100"
+                    />
+                    <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-base font-semibold text-surface-900 group-hover:text-brand-700 transition">
+                        <h3 className="text-base font-semibold text-surface-900 group-hover:text-brand-700 transition truncate">
                           {biz.name}
                         </h3>
-                        <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 bg-amber-50 rounded">
+                        <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 bg-amber-50 rounded shrink-0">
                           Featured
                         </span>
                       </div>

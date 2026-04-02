@@ -98,7 +98,13 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
       {/* Hero card */}
       <div className="p-6 mb-8 border rounded-xl bg-surface-50 border-surface-200 md:p-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-          <div>
+          <div className="flex items-start gap-4">
+            <img
+              src={`https://ui-avatars.com/api/?name=${encodeURIComponent(biz.name)}&background=b4090b&color=fff&size=128&bold=true&font-size=0.35`}
+              alt={`${biz.name} logo`}
+              className="w-16 h-16 rounded-xl object-cover shrink-0 border border-surface-200"
+            />
+            <div>
             <div className="flex items-center gap-3">
               <h1 className="text-2xl font-bold tracking-tight text-surface-900 md:text-3xl">
                 {biz.name}
@@ -114,6 +120,7 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                 {biz.short_description}
               </p>
             )}
+            </div>
           </div>
           {biz.accepting_new_clients && (
             <span className="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-green-700 bg-green-50 border border-green-200 rounded-full">

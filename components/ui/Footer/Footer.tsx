@@ -77,6 +77,11 @@ export default function Footer() {
                   Help Center
                 </Link>
               </li>
+              <li>
+                <Link href="/sitemap-page" className="text-sm text-surface-400 hover:text-white transition">
+                  Sitemap
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

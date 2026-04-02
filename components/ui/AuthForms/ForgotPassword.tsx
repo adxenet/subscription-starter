@@ -37,7 +37,7 @@ export default function ForgotPassword({
       >
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="text-sm font-medium text-surface-700">Email</label>
             <input
               id="email"
               placeholder="name@example.com"
@@ -46,7 +46,7 @@ export default function ForgotPassword({
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              className="w-full p-3 rounded-md bg-zinc-800"
+              className="w-full p-3 rounded-lg border border-surface-200 bg-white text-surface-900 placeholder:text-surface-400 focus:border-brand-500 focus:ring-brand-300/40"
             />
           </div>
           <Button
@@ -61,19 +61,19 @@ export default function ForgotPassword({
         </div>
       </form>
       <p>
-        <Link href="/signin/password_signin" className="font-light text-sm">
+        <Link href="/signin/password_signin" className="font-light text-sm text-surface-500 hover:text-brand-600">
           Sign in with email and password
         </Link>
       </p>
       {allowEmail && (
         <p>
-          <Link href="/signin/email_signin" className="font-light text-sm">
+          <Link href="/signin/email_signin" className="font-light text-sm text-surface-500 hover:text-brand-600">
             Sign in via magic link
           </Link>
         </p>
       )}
       <p>
-        <Link href="/signin/signup" className="font-light text-sm">
+        <Link href="/signin/signup" className="font-light text-sm text-surface-500 hover:text-brand-600">
           Don't have an account? Sign up
         </Link>
       </p>

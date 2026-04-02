@@ -121,9 +121,9 @@ export default function Navlinks({ user }: NavlinksProps) {
     <div className="relative flex flex-row justify-between py-3 align-center md:py-4">
       <div className="flex items-center flex-1 gap-1">
         <Link href="/" className={s.logo} aria-label="Logo">
-          <Logo />
+          <Logo className="w-6 h-6 md:w-8 md:h-8" />
         </Link>
-        <span className="ml-2 mr-6 text-lg font-bold tracking-tight text-surface-900">
+        <span className="ml-1.5 mr-4 text-sm font-bold tracking-tight text-surface-900 md:ml-2 md:mr-6 md:text-lg">
           China Forwarders
         </span>
         <nav className="hidden md:flex items-center gap-1">

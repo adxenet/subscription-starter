@@ -78,7 +78,7 @@ p a {
 }
 
 .animate-ticker {
-  animation: ticker 25s linear infinite;
+  animation: ticker 14s linear infinite;
 }
 
 @media (min-width: 768px) {
@@ -88,5 +88,28 @@ p a {
 }
 
 .animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-testimonials {
+  animation: scroll-testimonials 40s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .animate-testimonials {
+    animation-duration: 25s;
+  }
+}
+
+.animate-testimonials:hover {
   animation-play-state: paused;
 }

@@ -255,15 +255,25 @@ export default async function DirectoryPage({
                       href={`/directory/${biz.slug}`}
                       className="group flex flex-col h-full p-5 bg-white border border-surface-200 rounded-xl transition hover:border-brand-300 hover:shadow-md hover:shadow-brand-100/50"
                     >
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <div className="flex-1">
+                      <div className="flex items-start gap-3 mb-3">
+                        <img
+                          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(biz.name)}&background=b4090b&color=fff&size=128&bold=true&font-size=0.35`}
+                          alt={`${biz.name} logo`}
+                          className="w-10 h-10 rounded-lg object-cover shrink-0 border border-surface-100"
+                        />
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <h2 className="text-base font-semibold text-surface-900 group-hover:text-brand-700 transition">
+                            <h2 className="text-base font-semibold text-surface-900 group-hover:text-brand-700 transition truncate">
                               {biz.name}
                             </h2>
                             {biz.featured && (
-                              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 bg-amber-50 rounded">
+                              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 bg-amber-50 rounded shrink-0">
                                 Featured
+                              </span>
+                            )}
+                            {biz.accepting_new_clients && (
+                              <span className="hidden sm:inline-flex items-center px-2 py-0.5 text-[10px] font-semibold text-green-700 bg-green-50 border border-green-100 rounded-full shrink-0">
+                                Accepting
                               </span>
                             )}
                           </div>
@@ -273,11 +283,6 @@ export default async function DirectoryPage({
                             </p>
                           )}
                         </div>
-                        {biz.accepting_new_clients && (
-                          <span className="flex-shrink-0 inline-flex items-center px-2 py-1 text-[10px] font-semibold text-green-700 bg-green-50 border border-green-100 rounded-full">
-                            Accepting
-                          </span>
-                        )}
                       </div>
 
                       <div className="mt-auto pt-3 border-t border-surface-100 flex items-center justify-between text-xs text-surface-400">
