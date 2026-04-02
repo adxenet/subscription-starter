@@ -10,6 +10,10 @@
   @apply outline-none text-brand-600 ring-2 ring-brand-300/40;
 }
 
+.mobileLink {
+  @apply flex items-center px-3 py-3 text-base font-medium text-surface-700 rounded-lg transition hover:bg-surface-50 hover:text-brand-600;
+}
+
 .logo {
   @apply cursor-pointer rounded-full transform duration-100 ease-in-out;
 }

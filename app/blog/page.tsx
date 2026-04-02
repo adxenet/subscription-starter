@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
-import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
+import { createClient } from '@supabase/supabase-js';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Blog — China Forwarders',
@@ -9,13 +11,21 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const supabase = createClient();
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { global: { fetch: (url, init) => fetch(url, { ...init, cache: 'no-store' }) } }
+  );
 
-  const { data: posts } = await supabase
+  const { data: posts, error } = await supabase
     .from('blog_posts')
     .select('id, slug, title, excerpt, cover_image_url, published_at, author_name, reading_time_min')
     .eq('status', 'published')
     .order('published_at', { ascending: false });
+
+  if (error) {
+    console.error('Blog query error:', error);
+  }
 
   return (
     <section className="bg-gradient-to-b from-brand-50 via-white to-white min-h-screen">
